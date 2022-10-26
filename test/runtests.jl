@@ -4,7 +4,7 @@ using TestProject
 
 # import stuff from `test/env/Project`
 # `MetXOptim` depends on `MetXNetHub` but `MetXOptim` is needed for testing (fba)
-# `TestProject` (by running the test in an independen project) is avoiding the circular issue
+# `TestProject` (by running the test in an independent project) is avoiding the circular issue
 using MetXNetHub
 using MetXOptim 
 import MetXOptim.Clp
