@@ -1,10 +1,11 @@
 # activate env
-using TestProject
+using DevTests
 @activate_testenv
 
 # import stuff from `test/env/Project`
 # `MetXOptim` depends on `MetXNetHub` but `MetXOptim` is needed for testing (fba)
-# `TestProject` (by running the test in an independent project) is avoiding the circular issue
+# so it can't be a direct dependency of `MetXNetHub`. 
+# `DevTests` (by running the test in an independent project) is avoiding the circular issue
 using MetXNetHub
 using MetXOptim 
 import MetXOptim.Clp
@@ -14,8 +15,7 @@ using Test
 # test
 @testset "MetXNetHub.jl" begin
     
-    # to_test = ["linear_net", "toy_net", "ecoli_core", "iJR904", "ECC2", "ECGS"]
-    to_test = ["linear_net"]
+    to_test = ["linear_net", "toy_net", "ecoli_core", "iJR904", "ECC2", "ECGS"]
     build_args = Dict()
     build_args["linear_net"] = (10,)
     
