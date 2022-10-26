@@ -21,9 +21,13 @@ function _linear_net_builder(M::Int = 5)
     net[:ub] = ones(N)
     net[:rxns] = [string("Rxn", i) for i in 1:N]
     net[:mets] = [string("Met", i) for i in 1:M]
-
     
-    return MetNet(;net...)
+    net =  MetNet(;net...)
+
+    set_extra!(net, "EX_GLC", first(net.rxns))
+    set_extra!(net, "BIOM", last(net.rxns))
+    
+    return net
 end
 
 

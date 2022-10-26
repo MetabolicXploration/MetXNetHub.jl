@@ -1,4 +1,4 @@
-function load_net(id, build_args...; 
+function pull_net(id, build_args...; 
         clear_cache = false, 
     )
 

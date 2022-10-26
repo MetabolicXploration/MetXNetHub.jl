@@ -2,10 +2,12 @@ function _ecoli_core_builder()
 
     # load
     net = _load_raw_model("e_coli_core.mat")
-    net = _dense_vecs(net)
+    net = MetXBase.dense_vecs(net)
     
     set_extra!(net, "BIOM", "BIOMASS_Ecoli_core_w_GAM")
-    set_extra!(net, "GLC_EX", "EX_glc__D_e")
+    set_extra!(net, "EX_GLC", "EX_glc__D_e")
+
+    lin_objective!(net, "BIOMASS_Ecoli_core_w_GAM", 1.0)
 
     return net
 end

@@ -2,10 +2,12 @@ function _iJR904_builder()
 
     # load
     net = _load_raw_model("iJR904.xml")
-    net = _dense_vecs(net)
+    net = MetXBase.dense_vecs(net)
     
     set_extra!(net, "BIOM", "R_BIOMASS_Ecoli")
-    set_extra!(net, "GLC_EX", "R_EX_glc__D_e")
+    set_extra!(net, "EX_GLC", "R_EX_glc__D_e")
+    
+    lin_objective!(net, "R_BIOMASS_Ecoli", 1.0)
 
     return net
 end

@@ -24,6 +24,9 @@ function _toy_net_builder()
 
     # extras
     set_extra!(net, "BIOM", "biom")
+    set_extra!(net, "EX_GLC", "Ex_glc")
+    
+    lin_objective!(net, "biom", 1.0)
     
     return net
 end
