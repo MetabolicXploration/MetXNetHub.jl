@@ -2,9 +2,10 @@
 using DevTests
 @activate_testenv
 
-# import stuff from `test/env/Project`
+# import stuff from `test/env/Project`.
 # `MetXOptim` depends on `MetXNetHub` but `MetXOptim` is needed for testing (fba)
 # so it can't be a direct dependency of `MetXNetHub`. 
+# This is annoying while developing because `MetXOptim` will be `dev`ed
 # `DevTests` (by running the test in an independent project) is avoiding the circular issue
 using MetXNetHub
 using MetXOptim 
