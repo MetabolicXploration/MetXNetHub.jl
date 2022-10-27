@@ -22,6 +22,7 @@ module MetXNetHub
     include("nets/ECC2comp.jl")
     include("nets/ECGS.jl")
     include("nets/ecoli_core.jl")
+    include("nets/iJO1366.jl")
     include("nets/iJR904.jl")
     include("nets/linear_net.jl")
     include("nets/toy_net.jl")
@@ -40,6 +41,7 @@ module MetXNetHub
         _register_ECC2()
         # _register_ECC2comp() # TODO: make it growth
         _register_ECGS()
+        _register_iJO1366()
 
     end
 
