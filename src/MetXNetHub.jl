@@ -1,5 +1,6 @@
+# TODO: fix COBREXA.jl results on the tests
 module MetXNetHub
-
+    
     using Serialization
     using MetXBase
     using SparseArrays
@@ -7,7 +8,6 @@ module MetXNetHub
     import Scratch
 
     export pull_net, register_network!, registered_nets
-
 
     # globals
     const NETS_REG = Dict{String, Dict{String, Any}}()

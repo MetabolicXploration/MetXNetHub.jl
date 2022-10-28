@@ -10,9 +10,9 @@ function _ECCcomp_builder()
     ex_mets = filter(metabolites(net)) do met
         endswith(met, "_ex")
     end
-    del_met!(net, ex_mets)  
+    empty_met!(net, ex_mets)  
     # and Biomass met
-    del_met!(net, "Biomass")  
+    empty_met!(net, "Biomass")  
     net = emptyless_model(net)
     
     # open out close in
