@@ -52,7 +52,7 @@ using Test
             net = MetXNetHub.pull_net(id, args...)
             biom_id = get_extra(net, "BIOM")
             glcex_id = get_extra(net, "EX_GLC")
-            lin_objective!(net, biom_id)
+            lin_objective!(net, biom_id, 1.0)
 
             opm = fba(net, Clp.Optimizer)
             objval = solution(opm, biom_id)
