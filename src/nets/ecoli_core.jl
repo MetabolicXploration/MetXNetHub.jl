@@ -4,8 +4,8 @@ function _ecoli_core_builder()
     net = _load_raw_model("e_coli_core.mat")
     net = MetXBase.dense_vecs(net)
     
-    set_extra!(net, "BIOM", "BIOMASS_Ecoli_core_w_GAM")
-    set_extra!(net, "EX_GLC", "EX_glc__D_e")
+    extras!(net, "BIOM", "BIOMASS_Ecoli_core_w_GAM")
+    extras!(net, "EX_GLC", "EX_glc__D_e")
 
     lin_objective!(net, "BIOMASS_Ecoli_core_w_GAM", 1.0)
 

@@ -3,6 +3,7 @@ function _ECGS_builder()
     # load
     # 41598_2017_BFsrep39647_MOESM451_ESM
     net = _load_raw_model("ECGS.xml")
+    net = MetXBase.dense_vecs(net)
 
     # elimiate external mets
     ex_mets = filter(metabolites(net)) do met
@@ -38,8 +39,8 @@ function _ECGS_builder()
     lb!(net, "R_EX_cobalt2_LPAREN_e_RPAREN_", -1000.0)
     lb!(net, "R_EX_fe2_LPAREN_e_RPAREN_", -1000.0)
     
-    set_extra!(net, "BIOM", "R_Ec_biomass_iJO1366_core_53p95M")
-    set_extra!(net, "EX_GLC", "R_EX_glc_LPAREN_e_RPAREN_")
+    extras!(net, "BIOM", "R_Ec_biomass_iJO1366_core_53p95M")
+    extras!(net, "EX_GLC", "R_EX_glc_LPAREN_e_RPAREN_")
 
     lin_objective!(net, "R_Ec_biomass_iJO1366_core_53p95M", 1.0)
 

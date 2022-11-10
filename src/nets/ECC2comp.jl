@@ -5,6 +5,7 @@ function _ECCcomp_builder()
     # load
     # 41598_2017_BFsrep39647_MOESM453_ESM
     net = _load_raw_model("ECC2comp.xml")
+    net = MetXBase.dense_vecs(net)
 
     # elimiate external mets
     ex_mets = filter(metabolites(net)) do met
@@ -25,8 +26,8 @@ function _ECCcomp_builder()
 
     # minimum medium (open in)
     
-    set_extra!(net, "BIOM", "Growth")
-    set_extra!(net, "EX_GLC", "R_SuccUp")
+    extras!(net, "BIOM", "Growth")
+    extras!(net, "EX_GLC", "R_SuccUp")
 
     lin_objective!(net, "Growth", 1.0)
 

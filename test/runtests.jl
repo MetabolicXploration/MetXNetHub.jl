@@ -50,8 +50,8 @@ using Test
         
             args = get(build_args, id, ())
             net = MetXNetHub.pull_net(id, args...)
-            biom_id = get_extra(net, "BIOM")
-            glcex_id = get_extra(net, "EX_GLC")
+            biom_id = extras(net, "BIOM")
+            glcex_id = extras(net, "EX_GLC")
             lin_objective!(net, biom_id, 1.0)
 
             opm = fba(net, Clp.Optimizer)

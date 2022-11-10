@@ -23,8 +23,8 @@ function _toy_net_builder()
     net = MetNet(;net...)
 
     # extras
-    set_extra!(net, "BIOM", "biom")
-    set_extra!(net, "EX_GLC", "Ex_glc")
+    extras!(net, "BIOM", "biom")
+    extras!(net, "EX_GLC", "Ex_glc")
     
     lin_objective!(net, "biom", 1.0)
     

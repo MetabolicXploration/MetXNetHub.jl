@@ -22,8 +22,6 @@ function pull_net(id, build_args...;
     return net
 end
 
-_default_setup(net) = net
-
 function register_network!(id::String, builder::Function; 
         use_cache = true,
         desc...
@@ -46,7 +44,7 @@ function register_network!(id::String, builder::Function;
     return NETS_REG[id]
 end
 
-function registered_nets()
+function hub_status()
     for (id, meta) in NETS_REG
         println("-"^40)
         println("id: ", id)
@@ -69,6 +67,8 @@ function clear_cache!(id = nothing)
 end
 
 function get_reg(id) 
-    haskey(NETS_REG, id) || error("net '$id' not registered. See 'registered_nets()'")
+    haskey(NETS_REG, id) || error("net '$id' not registered. See 'hub_status()'")
     return NETS_REG[id]
 end
+
+nethubids() = collect(keys(NETS_REG))

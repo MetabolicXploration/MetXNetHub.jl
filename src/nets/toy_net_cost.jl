@@ -25,8 +25,8 @@
 #     set_rxn!(net, N + 1, Rxn("tot_cost"; mets = ["cost"], S = [1.0], lb = 0.0, ub = 1.0))
 
 #     # extras
-#     set_extra!(net, "BIOM", "biom")
-#     set_extra!(net, "COST", "tot_cost")
+#     extras!(net, "BIOM", "biom")
+#     extras!(net, "COST", "tot_cost")
 
 #     return net
 # end

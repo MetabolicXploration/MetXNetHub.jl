@@ -1,6 +1,6 @@
 name = "MetXNetHub"
 uuid = "be9415a8-24b2-49ae-ba75-41eeaa9f722f"
-authors = ["josePereiro <jose.pereiro.personal@gmail.com> and contributors"]
+authors = ["The members of MetabolicXploration"]
 version = "0.1.1"
 
 [deps]

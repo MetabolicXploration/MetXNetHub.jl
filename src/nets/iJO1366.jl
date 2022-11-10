@@ -2,6 +2,7 @@ function _iJO1366_builder()
 
     # load
     net = MetXNetHub._load_raw_model("iJO1366.xml")
+    net = MetXBase.dense_vecs(net)
 
     # open out close in
     ex_rxns = filter(reactions(net)) do rxn
@@ -27,8 +28,8 @@ function _iJO1366_builder()
     lb!(net, "R_EX_mg2_e", -1000.0)
     lb!(net, "R_EX_cobalt2_e", -1000.0)
     
-    set_extra!(net, "BIOM", "R_BIOMASS_Ec_iJO1366_core_53p95M")
-    set_extra!(net, "EX_GLC", "R_EX_glc__D_e")
+    extras!(net, "BIOM", "R_BIOMASS_Ec_iJO1366_core_53p95M")
+    extras!(net, "EX_GLC", "R_EX_glc__D_e")
 
     lin_objective!(net, "R_BIOMASS_Ec_iJO1366_core_53p95M", 1.0)
 

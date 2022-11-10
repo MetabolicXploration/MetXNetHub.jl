@@ -7,7 +7,7 @@ module MetXNetHub
 
     import Scratch
 
-    export pull_net, register_network!, registered_nets
+    export pull_net, register_network!, hub_status
 
     # globals
     const NETS_REG = Dict{String, Dict{String, Any}}()

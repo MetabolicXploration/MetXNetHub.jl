@@ -24,8 +24,8 @@ function _linear_net_builder(M::Int = 5)
     
     net =  MetNet(;net...)
 
-    set_extra!(net, "EX_GLC", first(net.rxns))
-    set_extra!(net, "BIOM", last(net.rxns))
+    extras!(net, "EX_GLC", first(net.rxns))
+    extras!(net, "BIOM", last(net.rxns))
     
     return net
 end
