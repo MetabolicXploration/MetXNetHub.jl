@@ -1,7 +1,7 @@
 name = "MetXNetHub"
 uuid = "be9415a8-24b2-49ae-ba75-41eeaa9f722f"
 authors = ["The members of MetabolicXploration"]
-version = "0.1.5"
+version = "0.1.6"
 
 [deps]
 RunTestsEnv = "aeeda050-7d39-4c85-b6eb-65567cadcf4d"
