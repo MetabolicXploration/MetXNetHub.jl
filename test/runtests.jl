@@ -16,7 +16,11 @@ using Test
 # test
 @testset "MetXNetHub.jl" begin
     
-    to_test = ["linear_net", "toy_net", "ecoli_core", "iJR904", "ECC2", "ECGS", "iJO1366"]
+    to_test = [
+        "linear_net", "toy_net", "toy_net4D", 
+        "ecoli_core", "ECC2", "ECGS", 
+        "iJR904", "iJO1366"
+    ]
     build_args = Dict()
     build_args["linear_net"] = (10,)
     

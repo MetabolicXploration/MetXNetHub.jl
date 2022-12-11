@@ -36,7 +36,7 @@ function _toy_net4D_builder()
     return net
 end
 
-function _register_toy_net()
+function _register_toy_net4D()
     register_network!("toy_net4D", _toy_net4D_builder;
         use_cache = false,
         source = "Home made ;)", 

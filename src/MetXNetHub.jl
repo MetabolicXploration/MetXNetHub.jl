@@ -38,6 +38,7 @@ module MetXNetHub
         _register_ecoli_core()
         _register_linear_model()
         _register_toy_net()
+        _register_toy_net4D()
         _register_iJR904()
         _register_ECC2()
         # _register_ECC2comp() # TODO: make it growth
