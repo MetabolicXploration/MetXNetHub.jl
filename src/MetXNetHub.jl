@@ -26,6 +26,7 @@ module MetXNetHub
     include("nets/iJR904.jl")
     include("nets/linear_net.jl")
     include("nets/toy_net.jl")
+    include("nets/toy_net4D.jl")
     include("nets/toy_net_cost.jl")
 
     function __init__()
