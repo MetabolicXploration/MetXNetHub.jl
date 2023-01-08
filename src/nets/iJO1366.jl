@@ -30,6 +30,7 @@ function _iJO1366_builder()
     
     extras!(net, "BIOM", "R_BIOMASS_Ec_iJO1366_core_53p95M")
     extras!(net, "EX_GLC", "R_EX_glc__D_e")
+    extras!(net, "ATPM", "R_ATPM")
 
     lin_objective!(net, "R_BIOMASS_Ec_iJO1366_core_53p95M", 1.0)
 

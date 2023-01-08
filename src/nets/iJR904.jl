@@ -6,6 +6,7 @@ function _iJR904_builder()
     
     extras!(net, "BIOM", "R_BIOMASS_Ecoli")
     extras!(net, "EX_GLC", "R_EX_glc__D_e")
+    extras!(net, "ATPM", "R_ATPM")
     
     lin_objective!(net, "R_BIOMASS_Ecoli", 1.0)
 

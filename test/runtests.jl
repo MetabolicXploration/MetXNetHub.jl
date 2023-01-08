@@ -19,7 +19,7 @@ using Test
     to_test = [
         "linear_net", "toy_net", "toy_net4D", 
         "ecoli_core", "ECC2", "ECGS", 
-        "iJR904", "iJO1366"
+        "iJR904", "iJO1366", "Martinez_Monge_HEK293"
     ]
     build_args = Dict()
     build_args["linear_net"] = (10,)

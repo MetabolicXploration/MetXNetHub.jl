@@ -6,6 +6,7 @@ function _ecoli_core_builder()
     
     extras!(net, "BIOM", "BIOMASS_Ecoli_core_w_GAM")
     extras!(net, "EX_GLC", "EX_glc__D_e")
+    extras!(net, "ATPM", "ATPM")
 
     lin_objective!(net, "BIOMASS_Ecoli_core_w_GAM", 1.0)
 
