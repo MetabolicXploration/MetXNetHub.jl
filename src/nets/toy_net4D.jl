@@ -31,7 +31,7 @@ function _toy_net4D_builder()
     extras!(net, "EX_GLC", "Ex_glc")
     extras!(net, "EX_AA", "Ex_aa")
     
-    lin_objective!(net, "biom", 1.0)
+    linear_coefficients!(net, "biom", 1.0)
     
     return net
 end

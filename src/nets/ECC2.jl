@@ -43,7 +43,7 @@ function _ECC2_builder()
     extras!(net, "EX_GLC", "R_EX_glc_LPAREN_e_RPAREN_")
     extras!(net, "ATPM", "R_ATPM")
 
-    lin_objective!(net, "R_Ec_biomass_iJO1366_core_53p95M", 1.0)
+    linear_coefficients!(net, "R_Ec_biomass_iJO1366_core_53p95M", 1.0)
 
     return net
 end

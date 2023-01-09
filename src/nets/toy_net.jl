@@ -26,7 +26,7 @@ function _toy_net_builder()
     extras!(net, "BIOM", "biom")
     extras!(net, "EX_GLC", "Ex_glc")
     
-    lin_objective!(net, "biom", 1.0)
+    linear_coefficients!(net, "biom", 1.0)
     
     return net
 end

@@ -32,7 +32,7 @@ function _iJO1366_builder()
     extras!(net, "EX_GLC", "R_EX_glc__D_e")
     extras!(net, "ATPM", "R_ATPM")
 
-    lin_objective!(net, "R_BIOMASS_Ec_iJO1366_core_53p95M", 1.0)
+    linear_coefficients!(net, "R_BIOMASS_Ec_iJO1366_core_53p95M", 1.0)
 
     return net
 end

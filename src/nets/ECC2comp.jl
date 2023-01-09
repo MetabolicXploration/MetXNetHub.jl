@@ -29,7 +29,7 @@ function _ECCcomp_builder()
     extras!(net, "BIOM", "Growth")
     extras!(net, "EX_GLC", "R_SuccUp")
 
-    lin_objective!(net, "Growth", 1.0)
+    linear_coefficients!(net, "Growth", 1.0)
 
     return net
 end

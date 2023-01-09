@@ -53,7 +53,7 @@ function _Martinez_Monge_HEK293_builder()
     extras!(net, "ATPM", "R_DM_atp_c_")
 
     # objective
-    lin_objective!(net, "R_Ex_Biomass", 1.0)
+    linear_coefficients!(net, "R_Ex_Biomass", 1.0)
 
     return net
 
