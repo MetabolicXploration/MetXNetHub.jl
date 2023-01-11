@@ -44,12 +44,18 @@ function register_network!(id::String, builder::Function;
     return NETS_REG[id]
 end
 
+export nethub_status
+function nethub_status(id)
+    meta = get_reg(id)
+    println("-"^40)
+    println("id: ", id)
+    println("source: ", get(meta, "source", ""))
+    println("desc: ", get(meta, "desc", ""))
+end
+
 function nethub_status()
-    for (id, meta) in NETS_REG
-        println("-"^40)
-        println("id: ", id)
-        println("source: ", get(meta, "source", ""))
-        println("desc: ", get(meta, "desc", ""))
+    for id in keys(NETS_REG)
+        nethub_status(id)
     end
 end
 

@@ -34,10 +34,13 @@ using Test
 
         MetXNetHub.clear_cache!()
         for id in to_test
+            
+            nethub_status(id)
+            println()
+
             args = get(build_args, id, ())
             net0 = MetXNetHub.pull_net(id, args...; clear_cache = false)
             net1 = MetXNetHub.pull_net(id, args...; clear_cache = false)
-            @info("Done", id)
             @test net0 == net1
         end
     end
