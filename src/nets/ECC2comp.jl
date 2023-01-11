@@ -27,7 +27,9 @@ function _ECCcomp_builder()
     # minimum medium (open in)
     
     extras!(net, "BIOM", "Growth")
-    extras!(net, "EX_GLC", "R_SuccUp")
+    # TODO: check ids
+    # extras!(net, "EX_GLC", "R_SuccUp")
+    # extras!(net, "EX_NH4", "R_EX_nh4_LPAREN_e_RPAREN_")
 
     linear_coefficients!(net, "Growth", 1.0)
 

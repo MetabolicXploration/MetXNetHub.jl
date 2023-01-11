@@ -41,6 +41,7 @@ function _ECGS_builder()
     
     extras!(net, "BIOM", "R_Ec_biomass_iJO1366_core_53p95M")
     extras!(net, "EX_GLC", "R_EX_glc_LPAREN_e_RPAREN_")
+    extras!(net, "EX_NH4", "R_EX_nh4_LPAREN_e_RPAREN_")
     extras!(net, "ATPM", "R_ATPM")
 
     linear_coefficients!(net, "R_Ec_biomass_iJO1366_core_53p95M", 1.0)
