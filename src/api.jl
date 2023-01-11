@@ -44,7 +44,7 @@ function register_network!(id::String, builder::Function;
     return NETS_REG[id]
 end
 
-function hub_status()
+function nethub_status()
     for (id, meta) in NETS_REG
         println("-"^40)
         println("id: ", id)
@@ -67,7 +67,7 @@ function clear_cache!(id = nothing)
 end
 
 function get_reg(id) 
-    haskey(NETS_REG, id) || error("net '$id' not registered. See 'hub_status()'")
+    haskey(NETS_REG, id) || error("net '$id' not registered. See 'nethub_status()'")
     return NETS_REG[id]
 end
 
