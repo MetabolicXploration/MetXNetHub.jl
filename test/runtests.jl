@@ -9,7 +9,7 @@ using RunTestsEnv
 # `RunTestsEnv` (by running the test in an independent project) is avoiding the circular issue
 using MetXNetHub
 using MetXOptim 
-import MetXOptim.Clp
+import MetXOptim.GLPK
 using MetXBase
 using Test
 
@@ -17,13 +17,28 @@ using Test
 @testset "MetXNetHub.jl" begin
     
     to_test = [
+        
+        # Toy models
         "linear_net", "toy_net", "toy_net4D", 
+
+        # E coli
         "ecoli_core", "ECC2", "ECGS", 
-        "iJR904", "iJO1366", "Martinez_Monge_HEK293"
+        "iJR904", "iJO1366", 
+        "folsomPhysiologicalBiomassElemental2015",
+        
+        # HEK
+        "Martinez_Monge_HEK293", 
     ]
+
+    # load args
     build_args = Dict()
-    build_args["linear_net"] = (10,)
-    
+    build_args["linear_net"] = [(10,)]
+    build_args["folsomPhysiologicalBiomassElemental2015"] = [
+        ("ecoli_core", limid, Di) 
+            for Di in 1:4 
+                for limid in ["$(nut)_Limited" for nut in ["N", "C", "Fe"]]
+    ]
+
     # ------------------------------------------------
     let
         println()
@@ -32,16 +47,19 @@ using Test
         println("."^60)
         println()
 
-        MetXNetHub.clear_cache!()
+        # MetXNetHub.clear_cache!() # Test: TODEL
         for id in to_test
             
             nethub_status(id)
             println()
 
-            args = get(build_args, id, ())
-            net0 = MetXNetHub.pull_net(id, args...; clear_cache = false)
-            net1 = MetXNetHub.pull_net(id, args...; clear_cache = false)
-            @test net0 == net1
+            argsv = get(build_args, id, [()])::Vector{<:Tuple}
+
+            for args in argsv
+                net0 = MetXNetHub.pull_net(id, args...; clear_cache = false)
+                net1 = MetXNetHub.pull_net(id, args...; clear_cache = false)
+                @test net0 == net1
+            end
         end
     end
 
@@ -55,18 +73,22 @@ using Test
     
         for id in to_test
         
-            args = get(build_args, id, ())
-            net = MetXNetHub.pull_net(id, args...)
-            biom_id = extras(net, "BIOM")
-            glcex_id = extras(net, "EX_GLC")
-            linear_coefficients!(net, biom_id, 1.0)
+            argsv = get(build_args, id, [()])::Vector{<:Tuple}
 
-            opm = fba(net, Clp.Optimizer)
-            objval = solution(opm, biom_id)
-            glcval = solution(opm, glcex_id)
+            for args in argsv
+                
+                net = MetXNetHub.pull_net(id, args...)
+                biom_id = extras(net, "BIOM")
+                linear_coefficients!(net, biom_id, 1.0)
 
-            @info("Done", id, objval, glcval)
-            @test objval > 0
-        end
+                opm = fba(net, GLPK.Optimizer)
+                objval = solution(opm, biom_id)
+
+                @info("Done", id, objval, args)
+                @test objval > 0
+
+            end # for args in argsv
+        end # for id in to_test
     end
+
 end

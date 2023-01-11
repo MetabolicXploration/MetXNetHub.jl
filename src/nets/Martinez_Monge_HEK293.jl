@@ -13,7 +13,7 @@ function _Martinez_Monge_HEK293_builder()
     net = emptyless_model(net)
 
     # close intakes
-    global exchs = filter(reactions(net)) do rxn
+    exchs = filter(reactions(net)) do rxn
         startswith(rxn, "R_EX_")
     end
     lb!(net, exchs, 0.0)

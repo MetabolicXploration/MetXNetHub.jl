@@ -1,8 +1,10 @@
 # TODO: fix COBREXA.jl results on the tests
 module MetXNetHub
     
-    using Serialization
     using MetXBase
+    using MetXCultureHub
+
+    using Serialization
     using SparseArrays
 
     import Scratch
@@ -23,6 +25,7 @@ module MetXNetHub
     include("nets/ECGS.jl")
     include("nets/Martinez_Monge_HEK293.jl")
     include("nets/ecoli_core.jl")
+    include("nets/folsomPhysiologicalBiomassElemental2015.jl")
     include("nets/iJO1366.jl")
     include("nets/iJR904.jl")
     include("nets/linear_net.jl")
@@ -46,6 +49,7 @@ module MetXNetHub
         _register_ECGS()
         _register_iJO1366()
         _register_Martinez_Monge_HEK293()
+        _register_folsomPhysiologicalBiomassElemental2015()
 
     end
 
