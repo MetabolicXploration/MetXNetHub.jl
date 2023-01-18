@@ -31,6 +31,7 @@ function _iJO1366_builder()
     extras!(net, "BIOM", "R_BIOMASS_Ec_iJO1366_core_53p95M")
     extras!(net, "EX_GLC", "R_EX_glc__D_e")
     extras!(net, "EX_NH4", "R_EX_nh4_e")
+    extras!(net, "EX_GLU", "R_EX_glu__L_e")
     extras!(net, "ATPM", "R_ATPM")
 
     linear_coefficients!(net, "R_BIOMASS_Ec_iJO1366_core_53p95M", 1.0)

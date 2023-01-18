@@ -51,6 +51,7 @@ function _Martinez_Monge_HEK293_builder()
     extras!(net, "BIOM", "R_Ex_Biomass")
     extras!(net, "EX_GLC", "R_EX_glc_LPAREN_e_RPAREN_")
     extras!(net, "EX_NH4", "R_EX_nh4_LPAREN_e_RPAREN_")
+    extras!(net, "EX_GLU", "R_EX_glu_L_LPAREN_e_RPAREN_")
     extras!(net, "ATPM", "R_DM_atp_c_")
 
     # objective
