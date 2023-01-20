@@ -8,6 +8,8 @@ function _ecoli_core_builder()
     extras!(net, "EX_GLC", "EX_glc__D_e")
     extras!(net, "EX_NH4", "EX_nh4_e")
     extras!(net, "EX_GLU", "EX_glu__L_e")
+    extras!(net, "EX_O2", "EX_o2_e")
+    extras!(net, "EX_CO2", "EX_co2_e")
     extras!(net, "ATPM", "ATPM")
 
     linear_coefficients!(net, "BIOMASS_Ecoli_core_w_GAM", 1.0)

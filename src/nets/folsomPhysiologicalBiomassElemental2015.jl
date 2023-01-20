@@ -6,12 +6,11 @@ function _folsomPhysiologicalBiomassElemental2015_builder(netid::AbstractString,
     
     # medium from https://doi.org/10.1099/mic.0.000118 
     cul = pull_cul("folsomPhysiologicalBiomassElemental2015")
-    api = cul["data"]["api"]
 
-    X = api[culid]["X"]["vals"][Di]
-    D = api[culid]["D"]["vals"][Di]
-    c_glc = api[culid]["c_glc"]["vals"][Di]
-    c_nh4 = api[culid]["c_nh4"]["vals"][Di]
+    X = queryfirst(cul, "X", culid, Di; extract = "val")
+    D = queryfirst(cul, "D", culid, Di; extract = "val")
+    c_glc = queryfirst(cul, "c_glc", culid, Di; extract = "val")
+    c_nh4 = queryfirst(cul, "c_nh4", culid, Di; extract = "val")
 
     ex_glc_id = extras(net, "EX_GLC")
     ex_nh4_id = extras(net, "EX_NH4")
