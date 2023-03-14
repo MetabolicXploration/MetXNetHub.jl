@@ -1,8 +1,10 @@
 # Custom
 
 /dev
+*.ipynb
+/docs
 /DEPRECATED
-
+/_DEPRECATED
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,linux,visualstudiocode,macos,emacs,julia,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,visualstudiocode,macos,emacs,julia,git
