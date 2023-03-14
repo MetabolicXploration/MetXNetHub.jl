@@ -7,6 +7,7 @@ using RunTestsEnv
 # so it can't be a direct dependency of `MetXNetHub`. 
 # This is annoying while developing because `MetXOptim` will be `dev`ed
 # `RunTestsEnv` (by running the test in an independent project) is avoiding the circular issue
+using MetXGEMs
 using MetXNetHub
 using MetXOptim 
 import MetXOptim.GLPK

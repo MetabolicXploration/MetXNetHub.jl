@@ -6,6 +6,7 @@ version = "0.1.6"
 [deps]
 MetXBase = "0b8c4419-604a-4c8e-9eed-0f79de4a140e"
 MetXCultureHub = "c8a5ff98-18da-494d-98cc-f2d3bae7da4c"
+MetXGEMs = "f53f3d78-cab5-4f57-a3bb-d62de48011ec"
 RunTestsEnv = "aeeda050-7d39-4c85-b6eb-65567cadcf4d"
 Scratch = "6c6a2e73-6563-6170-7368-637461726353"
 Serialization = "9e88b42a-f829-5b0c-bbe9-9e923198166b"

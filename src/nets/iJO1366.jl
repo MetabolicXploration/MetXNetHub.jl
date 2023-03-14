@@ -2,7 +2,7 @@ function _iJO1366_builder()
 
     # load
     net = MetXNetHub._load_raw_model("iJO1366.xml")
-    net = MetXBase.dense_vecs(net)
+    net = MetXGEMs.dense_vecs(net)
 
     # open out close in
     ex_rxns = filter(reactions(net)) do rxn

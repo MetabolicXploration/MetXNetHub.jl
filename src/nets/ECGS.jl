@@ -3,7 +3,7 @@ function _ECGS_builder()
     # load
     # 41598_2017_BFsrep39647_MOESM451_ESM
     net = _load_raw_model("ECGS.xml")
-    net = MetXBase.dense_vecs(net)
+    net = MetXGEMs.dense_vecs(net)
 
     # elimiate external mets
     ex_mets = filter(metabolites(net)) do met

@@ -2,6 +2,7 @@
 module MetXNetHub
     
     using MetXBase
+    using MetXGEMs
     using MetXCultureHub
 
     using Serialization

@@ -1,4 +1,5 @@
 [deps]
+MetXGEMs = "f53f3d78-cab5-4f57-a3bb-d62de48011ec"
 MetXBase = "0b8c4419-604a-4c8e-9eed-0f79de4a140e"
 MetXNetHub = "be9415a8-24b2-49ae-ba75-41eeaa9f722f"
 MetXOptim = "672bf490-d3aa-44fe-a664-43445036b9de"
