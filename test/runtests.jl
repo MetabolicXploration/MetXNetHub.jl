@@ -57,8 +57,8 @@ using Test
             argsv = get(build_args, id, [()])::Vector{<:Tuple}
 
             for args in argsv
-                net0 = MetXNetHub.pull_net(id, args...; clear_cache = false)
-                net1 = MetXNetHub.pull_net(id, args...; clear_cache = false)
+                net0 = pull_net(id, args...; clear_cache = false)
+                net1 = pull_net(id, args...; clear_cache = false)
                 @test net0 == net1
             end
         end
@@ -78,7 +78,7 @@ using Test
 
             for args in argsv
                 
-                net = MetXNetHub.pull_net(id, args...)
+                net = pull_net(id, args...)
                 biom_id = extras(net, "BIOM")
                 linear_coefficients!(net, biom_id, 1.0)
 
