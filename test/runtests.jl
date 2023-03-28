@@ -29,6 +29,9 @@ using Test
         
         # HEK
         "Martinez_Monge_HEK293", 
+
+        # Human
+        "ENGRO1"
     ]
 
     # load args

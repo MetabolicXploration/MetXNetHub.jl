@@ -19,6 +19,7 @@ end
 
 function _register_ecoli_core()
     register_network!("ecoli_core", _ecoli_core_builder;
+        use_cache = false,
         source = "http://bigg.ucsd.edu/models/e_coli_core", 
         desc = "The clasical core model of E. coli in a minimum glucose rich medium"
     )

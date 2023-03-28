@@ -24,6 +24,7 @@ module MetXNetHub
     include("nets/ECC2.jl")
     include("nets/ECC2comp.jl")
     include("nets/ECGS.jl")
+    include("nets/ENGRO1.jl")
     include("nets/Martinez_Monge_HEK293.jl")
     include("nets/ecoli_core.jl")
     include("nets/folsomPhysiologicalBiomassElemental2015.jl")
@@ -51,6 +52,7 @@ module MetXNetHub
         _register_iJO1366()
         _register_Martinez_Monge_HEK293()
         _register_folsomPhysiologicalBiomassElemental2015()
+        _register_ENGRO1()
 
     end
 
