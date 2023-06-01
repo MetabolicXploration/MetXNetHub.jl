@@ -25,10 +25,13 @@ using Test
         # E coli
         "ecoli_core", "ECC2", "ECGS", 
         "iJR904", "iJO1366", 
-        "folsomPhysiologicalBiomassElemental2015",
+        # "folsomPhysiologicalBiomassElemental2015", # TODO: makes MetXCultureHub works
         
         # HEK
         "Martinez_Monge_HEK293", 
+
+        # CHO
+        "iCHO2291",
 
         # Human
         "ENGRO1"
@@ -51,7 +54,7 @@ using Test
         println("."^60)
         println()
 
-        # MetXNetHub.clear_cache!() # Test: TODEL
+        MetXNetHub.clear_cache!()
         for id in to_test
             
             nethub_status(id)
@@ -82,13 +85,13 @@ using Test
             for args in argsv
                 
                 net = pull_net(id, args...)
-                biom_id = extras(net, "BIOM")
-                linear_coefficients!(net, biom_id, 1.0)
+                obj_id = extras(net, "BIOM")
+                linear_coefficients!(net, obj_id, 1.0)
 
                 opm = fba(net, GLPK.Optimizer)
-                objval = solution(opm, biom_id)
+                objval = solution(opm, obj_id)
 
-                @info("Done", id, objval, args)
+                @info("Done", id, obj_id, objval, args)
                 @test objval > 0
 
             end # for args in argsv

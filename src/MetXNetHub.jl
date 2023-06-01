@@ -3,7 +3,8 @@ module MetXNetHub
     
     using MetXBase
     using MetXGEMs
-    using MetXCultureHub
+    import MetXGEMs.COBREXA
+    # using MetXCultureHub # TODO: makes MetXCultureHub works
 
     using Serialization
     using SparseArrays
@@ -16,9 +17,9 @@ module MetXNetHub
     const NETS_REG = Dict{String, Dict{String, Any}}()
     NETS_DIR = ""
 
-    #! include .
-    include("api.jl")
-    include("utils.jl")
+    #! include core
+    include("core/api.jl")
+    include("core/utils.jl")
 
     #! include nets
     include("nets/ECC2.jl")
@@ -27,7 +28,8 @@ module MetXNetHub
     include("nets/ENGRO1.jl")
     include("nets/Martinez_Monge_HEK293.jl")
     include("nets/ecoli_core.jl")
-    include("nets/folsomPhysiologicalBiomassElemental2015.jl")
+    # include("nets/folsomPhysiologicalBiomassElemental2015.jl") # TODO: makes MetXCultureHub works
+    include("nets/iCHO2291.jl")
     include("nets/iJO1366.jl")
     include("nets/iJR904.jl")
     include("nets/linear_net.jl")
@@ -50,8 +52,9 @@ module MetXNetHub
         # _register_ECC2comp() # TODO: make it growth
         _register_ECGS()
         _register_iJO1366()
+        _register_iCHO2291()
         _register_Martinez_Monge_HEK293()
-        _register_folsomPhysiologicalBiomassElemental2015()
+        # _register_folsomPhysiologicalBiomassElemental2015()  # TODO: makes MetXCultureHub works
         _register_ENGRO1()
 
     end

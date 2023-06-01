@@ -2,8 +2,26 @@
 
 function _Martinez_Monge_HEK293_builder()
 
+    # load 
     rawfilename = "bit26858-sup-0001-S1_Model.xml"
-    net = MetXNetHub._load_raw_model(rawfilename)
+    rawfile = _raw_file(rawfilename)
+
+    std_net = COBREXA.load_model(COBREXA.StandardModel, rawfile)
+
+    # TODO: add gene associations
+    # TODO: add notes to MetNet
+    # "<notes>\n  <html:p>GENE_ASSOCIATION:  </html:p>\n  <html:p>PROTEIN_ASSOCIATION:  </html:p>\n  <html:p>PROTEIN_CLASS:  </html:p>\n  <html:p>SUBSYSTEM:  Transport, mitochondrial</html:p>\n  <html:p>CONFIDENCE_LEVEL: 2</html:p>\n  <html:p>PROTEIN_ASSOCIATION: </html:p>\n  <html:p>NOTES: NCD</html:p>\n</notes>"
+    subSystems = String[]
+    subSystems_reg = r"<html:p>SUBSYSTEM:(?<subsys>.*)</html:p>"
+    for (rxn, dat) in std_net.reactions
+        notes = dat.notes[""][1]
+        m = match(subSystems_reg, string(notes))
+        subsys = isnothing(m) ? "" : strip(m[:subsys])
+        push!(subSystems, subsys)
+    end
+    
+    net = convert(MetNet, std_net)
+    net = MetNet(net; subSystems)
 
     # elimiate external mets
     ex_mets = filter(metabolites(net)) do met
