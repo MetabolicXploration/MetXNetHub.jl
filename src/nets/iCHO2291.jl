@@ -64,7 +64,7 @@ function _iCHO2291_builder()
     # bounds!(net, "R_EX_ser_L__40__e__41__", 0.0, 1000.0)
     # bounds!(net, "R_EX_pyr__40__e__41__", 0.0, 1000.0)
     
-    # Demands
+     # Demands
     bounds!(net, "R_DM_atp__91__c__93__", 0.0, 1000.0)
     bounds!(net, "R_DM_Ser__47__Thr__91__ly__93__", 0.0, 0.0)
     

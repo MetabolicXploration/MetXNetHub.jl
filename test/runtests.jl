@@ -28,13 +28,14 @@ using Test
         # "folsomPhysiologicalBiomassElemental2015", # TODO: makes MetXCultureHub works
         
         # HEK
-        "Martinez_Monge_HEK293", 
+        "Martinez_Monge_HEK293",
 
         # CHO
         "iCHO2291",
 
         # Human
-        "ENGRO1"
+        "ENGRO1", 
+        "HumanGEM"
     ]
 
     # load args
