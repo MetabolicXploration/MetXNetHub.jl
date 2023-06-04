@@ -3,7 +3,7 @@ function _ECC2_builder()
     # load
     # 41598_2017_BFsrep39647_MOESM452_ESM
     net = _load_raw_model("ECC2.xml")
-    net = MetXGEMs.dense_vecs(net)
+    net = _common_format(net)
 
     # elimiate external mets
     ex_mets = filter(metabolites(net)) do met

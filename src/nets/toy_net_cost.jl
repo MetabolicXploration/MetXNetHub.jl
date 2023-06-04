@@ -4,6 +4,7 @@
 #     @assert resp_cost <= 0.0
 
 #     net = load_net("toy_net")
+#     net = _common_format(net)
 
 #     # Atpm
 #     lb!(net, "atpm", E_demand)

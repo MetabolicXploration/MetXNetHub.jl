@@ -30,19 +30,20 @@ function empty_drug_reactions!(net::MetNet; verbose = false)
     end
 
     # drugMets = contains(inModel.metNames,drugNames,'IgnoreCase',true);
-    empty_met!(net, drug_metis)
-    empty_rxn!(net, drug_rxnis)
+    empty_met!(net, drug_metis; empty_void = false)
+    empty_rxn!(net, drug_rxnis; empty_void = false)
+    empty_void_iders!(net)
     
     return net
 
 end
 
 ## ------------------------------------------------------------------
-function _HumanGEM_builder()
+function _SysBioChanlmers_Human_GEM_builder()
     
     # load
-    net = _load_raw_model("Human-GEM.mat")
-    net = MetXGEMs.dense_vecs(net)
+    net = _load_raw_model("SysBioChalmers", "Human-GEM", "Human-GEM.mat")
+    net = _common_format(net)
 
     # remove drug reactions
     net = empty_drug_reactions!(net)
@@ -115,8 +116,8 @@ function _HumanGEM_builder()
 
 end
 
-function _register_HumanGEM()
-    register_network!("HumanGEM", _HumanGEM_builder;
+function _register_SysBioChanlmers_Human_GEM()
+    register_network!("SysBioChalmers_Human_GEM", _SysBioChanlmers_Human_GEM_builder;
         use_cache = true,
         source = "J. L. Robinson, P. Kocabas, H. Wang, P.-E. Cholley, et al. An atlas of human metabolism. Sci. Signal. 13, eaaz 1482 (2020). [doi:10.1126/scisignal.aaz1482](https://doi.org/10.1126/scisignal.aaz1482)", 
         download = """https://github.com/SysBioChalmers/Human-GEM, 

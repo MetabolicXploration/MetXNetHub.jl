@@ -22,6 +22,7 @@ function _Martinez_Monge_HEK293_builder()
     
     net = convert(MetNet, std_net)
     net = MetNet(net; subSystems)
+    net = _common_format(net)
 
     # elimiate external mets
     ex_mets = filter(metabolites(net)) do met

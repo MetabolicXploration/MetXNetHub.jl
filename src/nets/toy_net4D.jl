@@ -25,6 +25,7 @@ function _toy_net4D_builder()
         "Lactate DH", "Lactate transport", "Biomass production rate", "atp demand"];
 
     net = MetNet(;net...)
+    net = _common_format(net)
 
     # extras
     extras!(net, "BIOM", "biom")

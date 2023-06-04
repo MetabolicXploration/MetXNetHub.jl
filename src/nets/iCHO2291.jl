@@ -2,7 +2,7 @@ function _iCHO2291_builder()
 
     # load
     net = _load_raw_model("iCHO2291.xml")
-    net = MetXGEMs.dense_vecs(net)
+    net = _common_format(net)
 
     # Close intakes open productions
     for rxn in colids(net)

@@ -2,7 +2,7 @@ function _ecoli_core_builder()
 
     # load
     net = _load_raw_model("e_coli_core.mat")
-    net = MetXGEMs.dense_vecs(net)
+    net = _common_format(net)
     
     extras!(net, "BIOM", "BIOMASS_Ecoli_core_w_GAM")
     extras!(net, "EX_GLC", "EX_glc__D_e")

@@ -23,6 +23,7 @@ function _linear_net_builder(M::Int = 5)
     net[:mets] = [string("Met", i) for i in 1:M]
     
     net =  MetNet(;net...)
+    net = _common_format(net)
 
     extras!(net, "EX_GLC", first(net.rxns))
     extras!(net, "BIOM", last(net.rxns))

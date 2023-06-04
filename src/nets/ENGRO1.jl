@@ -3,7 +3,6 @@ function _ecoli_ENGRO1()
     # load
     # from https://doi.org/10.1371/journal.pcbi.1005758.s012
     net0 = _load_raw_model("ENGRO1.xml")
-    clampbounds!(net0, -1000, 1000)
 
     # @show size(net0)
 
@@ -32,7 +31,7 @@ function _ecoli_ENGRO1()
     # @show length(boundary_mets)
     empty_met!(net0, boundary_mets)
     net = emptyless_model(net0)
-    net = dense_vecs(net)
+    net = _common_format(net)
 
     # rename DMs
     net.rxns .= map(net.rxns) do rxn

@@ -35,12 +35,15 @@ using Test
 
         # Human
         "ENGRO1", 
-        "HumanGEM"
+        "SysBioChalmers_Human_GEM", 
+        "SysBioChalmers_EnzymeConstrained_humanModels"
     ]
 
     # load args
     build_args = Dict()
     build_args["linear_net"] = [(10,)]
+    build_args["SysBioChalmers_EnzymeConstrained_humanModels"] = 
+        tuple.(MetXNetHub.__SysBioChalmers_EnzymeConstrained_humanModels_gemids)
     build_args["folsomPhysiologicalBiomassElemental2015"] = [
         ("ecoli_core", limid, Di) 
             for Di in 1:4 
@@ -48,28 +51,30 @@ using Test
     ]
 
     # ------------------------------------------------
-    let
-        println()
-        println("="^60)
-        println("LOAD AND CACHE")
-        println("."^60)
-        println()
+    # TODO: No use case yet for caching. Loading is 'fast'
+    # let
 
-        MetXNetHub.clear_cache!()
-        for id in to_test
+    #     println()
+    #     println("="^60)
+    #     println("LOAD AND CACHE")
+    #     println("."^60)
+    #     println()
+
+    #     MetXNetHub.clear_cache!()
+    #     for id in to_test
             
-            nethub_status(id)
-            println()
+    #         nethub_status(id)
+    #         println()
 
-            argsv = get(build_args, id, [()])::Vector{<:Tuple}
+    #         argsv = get(build_args, id, [()])::Vector{<:Tuple}
 
-            for args in argsv
-                net0 = pull_net(id, args...; clear_cache = false)
-                net1 = pull_net(id, args...; clear_cache = false)
-                @test net0 == net1
-            end
-        end
-    end
+    #         for args in argsv
+    #             net0 = pull_net(id, args...; clear_cache = false)
+    #             net1 = pull_net(id, args...; clear_cache = false)
+    #             @test net0 == net1
+    #         end
+    #     end
+    # end
 
     # ------------------------------------------------
     let

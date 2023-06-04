@@ -1,4 +1,11 @@
 ## ------------------------------------------------------------------
+# CACHE
+function _cache_file(id, build_args...)
+    _hash = hash(hash.([id, build_args...]))
+    return joinpath(NETS_DIR, string(basename(id), "_", _hash, ".jls"))
+end
+
+## ------------------------------------------------------------------
 # PULL NET
 function pull_net(id, build_args...; 
         clear_cache = false, 
@@ -7,19 +14,28 @@ function pull_net(id, build_args...;
     reg = get_reg(id)
 
     # cache
-    cachefile = get(reg, "cachefile", "")
-    clear_cache && clear_cache!(id)
-    if isfile(cachefile) 
-        try; return deserialize(cachefile)
-            catch; clear_cache!(id)
-        end
-    end
+    # TODO: No use case yet for caching. Loading is 'fast'
+    # cfile = _cache_file(id, build_args...)
+    # clear_cache && rm(cfile; force = true)
+    # use_cache = get(reg, "use_cache", false)
+    
+    # cache load
+    # TODO: No use case yet for caching. Loading is 'fast'
+    # if use_cache && isfile(cfile) 
+    #     try; return deserialize(cfile)
+    #         catch; rm(cfile; force = true)
+    #     end
+    # end
 
     # get net
     net = reg["builder"](build_args...)
 
-    # cache
-    isempty(cachefile) || serialize(cachefile, net)
+    # cache write
+    # TODO: No use case yet for caching. Loading is 'fast'
+    # if use_cache
+    #     mkpath(dirname(cfile))
+    #     serialize(cfile, net)
+    # end
     
     return net
 end
@@ -38,9 +54,9 @@ function register_network!(id::String, builder::Function;
         NETS_REG[id][string(k)] = v
     end
     
-    # cache
-    NETS_REG[id]["cachefile"] = use_cache ? joinpath(NETS_DIR, string(id, ".jls")) : ""
-    
+    # use cache
+    NETS_REG[id]["use_cache"] = use_cache
+
     # setup
     NETS_REG[id]["builder"] = builder
 
@@ -64,16 +80,15 @@ function nethub_status()
 end
 
 ## ------------------------------------------------------------------
-function clear_cache!(id = nothing)
+function clear_cache!(id, build_args...)
+    cfile = _cache_file(id, build_args...)
+    rm(cfile; force = true)
+    return nothing
+end
 
-    if isnothing(id)
-        rm(NETS_DIR; recursive = true, force = true)
-        mkpath(NETS_DIR)
-    else
-        reg = get_reg(id)
-        cachefile = get(reg, "cachefile", "")
-        rm(cachefile; force = true)
-    end
+function clear_cache!()
+    rm(NETS_DIR; recursive = true, force = true)
+    mkpath(NETS_DIR)
     return nothing
 end
 

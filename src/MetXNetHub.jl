@@ -1,4 +1,5 @@
-# TODO: fix COBREXA.jl results on the tests
+# TODO: Add a download api (at least for GEMs hosted in github repos)
+
 module MetXNetHub
     
     using MetXBase
@@ -26,8 +27,9 @@ module MetXNetHub
     include("nets/ECC2comp.jl")
     include("nets/ECGS.jl")
     include("nets/ENGRO1.jl")
-    include("nets/HumanGEM.jl")
     include("nets/Martinez_Monge_HEK293.jl")
+    include("nets/SysBioChalmers_EnzymeConstrained_humanModels.jl")
+    include("nets/SysBioChanlmers_Human_GEM.jl")
     include("nets/ecoli_core.jl")
     include("nets/folsomPhysiologicalBiomassElemental2015.jl")
     include("nets/iCHO2291.jl")
@@ -37,7 +39,6 @@ module MetXNetHub
     include("nets/toy_net.jl")
     include("nets/toy_net4D.jl")
     include("nets/toy_net_cost.jl")
-    # include("nets/folsomPhysiologicalBiomassElemental2015.jl") # TODO: makes MetXCultureHub works
 
     function __init__()
         # scratch
@@ -56,7 +57,8 @@ module MetXNetHub
         _register_iJO1366()
         _register_iCHO2291()
         _register_Martinez_Monge_HEK293()
-        _register_HumanGEM()
+        _register_SysBioChanlmers_Human_GEM()
+        _register_SysBioChalmers_EnzymeConstrained_humanModels()
         # _register_folsomPhysiologicalBiomassElemental2015()  # TODO: makes MetXCultureHub works
         _register_ENGRO1()
 
