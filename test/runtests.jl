@@ -10,7 +10,7 @@ using RunTestsEnv
 using MetXGEMs
 using MetXNetHub
 using MetXOptim 
-import MetXOptim.GLPK
+import MetXOptim.Clp
 using MetXBase
 using Test
 
@@ -25,7 +25,7 @@ using Test
         # E coli
         "ecoli_core", "ECC2", "ECGS", 
         "iJR904", "iJO1366", 
-        # "folsomPhysiologicalBiomassElemental2015", # TODO: makes MetXCultureHub works
+        # "folsomPhysiologicalBiomassElemental2015", # TODO: make MetXCultureHub work
         
         # HEK
         "Martinez_Monge_HEK293",
@@ -42,7 +42,7 @@ using Test
     # load args
     build_args = Dict()
     build_args["linear_net"] = [(10,)]
-    build_args["SysBioChalmers_EnzymeConstrained_humanModels"] = 
+    build_args["SysBioChalmers_EnzymeConstrained_humanModels"] = #...
         tuple.(MetXNetHub.__SysBioChalmers_EnzymeConstrained_humanModels_gemids)
     build_args["folsomPhysiologicalBiomassElemental2015"] = [
         ("ecoli_core", limid, Di) 
@@ -90,15 +90,22 @@ using Test
 
             for args in argsv
                 
-                net = pull_net(id, args...)
-                obj_id = extras(net, "BIOM")
-                linear_coefficients!(net, obj_id, 1.0)
+                @time begin
+                    net = pull_net(id, args...)
+                    obj_id = extras(net, "BIOM")
+                    _size = size(net)
 
-                opm = fba(net, GLPK.Optimizer)
-                objval = solution(opm, obj_id)
+                    # Test biom is set
+                    @test linear_coefficients(net, obj_id) == 1.0
 
-                @info("Done", id, obj_id, objval, args)
-                @test objval > 0
+                    opm = FBAOpModel(net, Clp.Optimizer)
+                    net = nothing; GC.gc(); # free (just in case)
+                    optimize!(opm)
+                    objval = solution(opm, obj_id)
+
+                    @info("DONE!!!", id, size = _size, obj_id, objval, args)
+                    @test objval > 0
+                end
 
             end # for args in argsv
         end # for id in to_test

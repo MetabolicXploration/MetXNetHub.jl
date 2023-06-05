@@ -24,6 +24,8 @@ function _linear_net_builder(M::Int = 5)
     
     net =  MetNet(;net...)
     net = _common_format(net)
+    
+    linear_coefficients!(net, last(net.rxns), 1.0)
 
     extras!(net, "EX_GLC", first(net.rxns))
     extras!(net, "BIOM", last(net.rxns))
