@@ -218,7 +218,7 @@ function _SysBioChalmers_EnzymeConstrained_humanModels_tINIT_EC_builder(gemid::S
 end
 
 ## ------------------------------------------------------------------
-function _SysBioChalmers_EnzymeConstrained_humanModels_builder(gemid::String)
+function _SysBioChalmers_EnzymeConstrained_humanModels_builder(gemid::String, biom_mod::String = "original")
     
     # check id
     ids = __SysBioChalmers_EnzymeConstrained_humanModels_gemids
@@ -230,10 +230,17 @@ function _SysBioChalmers_EnzymeConstrained_humanModels_builder(gemid::String)
 
     if startswith(gemid, "ec_") # tINIT + EC models
         gemid = gemid[4:end] # remove 'ec_'
-        _SysBioChalmers_EnzymeConstrained_humanModels_tINIT_EC_builder(gemid)
+        net = _SysBioChalmers_EnzymeConstrained_humanModels_tINIT_EC_builder(gemid)
     else # tINIT models
-        _SysBioChalmers_EnzymeConstrained_humanModels_tINIt_builder(gemid)
+        net = _SysBioChalmers_EnzymeConstrained_humanModels_tINIt_builder(gemid)
     end
+
+    # biomass modification
+    if biom_mod != "original"
+        _SysBioChalmers_EnzymeConstrained_humanModels_Niklas_biomass!(net, biom_mod)
+    end
+
+    return net
 
 end
 

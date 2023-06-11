@@ -40,10 +40,15 @@ using Test
     ]
 
     # load args
-    build_args = Dict()
+    build_args = Dict{String, Vector{Any}}()
     build_args["linear_net"] = [(10,)]
     build_args["SysBioChalmers_EnzymeConstrained_humanModels"] = #...
         tuple.(MetXNetHub.__SysBioChalmers_EnzymeConstrained_humanModels_gemids)
+    push!(build_args["SysBioChalmers_EnzymeConstrained_humanModels"], 
+        (MetXNetHub.__SysBioChalmers_EnzymeConstrained_humanModels_gemids[1], "AGE1.HN.AAT"),
+        (MetXNetHub.__SysBioChalmers_EnzymeConstrained_humanModels_gemids[1], "AGE1.HN"),
+    )
+
     build_args["folsomPhysiologicalBiomassElemental2015"] = [
         ("ecoli_core", limid, Di) 
             for Di in 1:4 
@@ -86,7 +91,7 @@ using Test
     
         for id in to_test
         
-            argsv = get(build_args, id, [()])::Vector{<:Tuple}
+            argsv = get(build_args, id, [()])
 
             for args in argsv
                 
