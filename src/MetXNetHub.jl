@@ -30,7 +30,7 @@ module MetXNetHub
     include("nets/Martinez_Monge_HEK293.jl")
     include("nets/SysBioChanlmers/SysBioChalmers_EnzymeConstrained_humanModels.jl")
     include("nets/SysBioChanlmers/niklas_biomass.jl")
-    include("nets/SysBioChanlmers/SysBioChanlmers_Human_GEM.jl")
+    include("nets/SysBioChanlmers/SysBioChalmers_Human_GEM.jl")
     include("nets/ecoli_core.jl")
     include("nets/folsomPhysiologicalBiomassElemental2015.jl")
     include("nets/iCHO2291.jl")

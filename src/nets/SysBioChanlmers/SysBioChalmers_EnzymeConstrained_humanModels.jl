@@ -73,7 +73,7 @@ function _SysBioChalmers_EnzymeConstrained_humanModels_tINIt_builder(gemid::Stri
     bounds!(net, "HMR_9067", -0.1, 1000.0) # glycine (metid: MAM01986e)
     bounds!(net, "HMR_9069", -0.1, 1000.0) # serine (metid: MAM02896e)
     bounds!(net, "HMR_9044", -0.1, 1000.0) # threonine (metid: MAM02993e)
-    bounds!(net, "HMR_9062", -0.1, 1000.0) # asparagine (metid: MAM01369e)
+    bounds!(net, "HMR_9070", -0.1, 1000.0) # aspartate (metid: )
     bounds!(net, "HMR_9071", -0.1, 1000.0) # glutamate (metid: MAM01974e)
     bounds!(net, "HMR_9109", -1000.0, 1000.0) # biotin (metid: MAM01401e)
     bounds!(net, "HMR_9145", -1000.0, 1000.0) # pantothenate (metid: MAM02680e)
@@ -172,7 +172,7 @@ function _SysBioChalmers_EnzymeConstrained_humanModels_tINIT_EC_builder(gemid::S
     bounds!(ecnet, "HMR_9067_REV", 0.0, 0.1) # glycine (metid: MAM01986e)
     bounds!(ecnet, "HMR_9069_REV", 0.0, 0.1) # serine (metid: MAM02896e)
     bounds!(ecnet, "HMR_9044_REV", 0.0, 0.1) # threonine (metid: MAM02993e)
-    bounds!(ecnet, "HMR_9062_REV", 0.0, 0.1) # asparagine (metid: MAM01369e)
+    bounds!(ecnet, "HMR_9070_REV", 0.0, 0.1) # aspartate (metid: )
     bounds!(ecnet, "HMR_9071_REV", 0.0, 0.1) # glutamate (metid: MAM01974e)
     bounds!(ecnet, "HMR_9109_REV", 0.0, flx_inf) # biotin (metid: MAM01401e)
     bounds!(ecnet, "HMR_9145_REV", 0.0, flx_inf) # pantothenate (metid: MAM02680e)
@@ -218,7 +218,7 @@ function _SysBioChalmers_EnzymeConstrained_humanModels_tINIT_EC_builder(gemid::S
 end
 
 ## ------------------------------------------------------------------
-function _SysBioChalmers_EnzymeConstrained_humanModels_builder(gemid::String, biom_mod::String = "original")
+function _SysBioChalmers_EnzymeConstrained_humanModels_builder(gemid::String, biom_mod = nothing)
     
     # check id
     ids = __SysBioChalmers_EnzymeConstrained_humanModels_gemids
@@ -236,7 +236,7 @@ function _SysBioChalmers_EnzymeConstrained_humanModels_builder(gemid::String, bi
     end
 
     # biomass modification
-    if biom_mod != "original"
+    if !isnothing(biom_mod)
         _SysBioChalmers_EnzymeConstrained_humanModels_Niklas_biomass!(net, biom_mod)
     end
 
