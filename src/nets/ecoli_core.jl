@@ -12,7 +12,7 @@ function _ecoli_core_builder()
     extras!(net, "EX_CO2", "EX_co2_e")
     extras!(net, "ATPM", "ATPM")
 
-    linear_coefficients!(net, "BIOMASS_Ecoli_core_w_GAM", 1.0)
+    linear_weights!(net, "BIOMASS_Ecoli_core_w_GAM", 1.0)
 
     return net
 end

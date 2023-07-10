@@ -62,7 +62,7 @@ function _ecoli_ENGRO1()
     extras!(net, "ATPM", "R_ATP_ADP")
 
     # default linear obj
-    linear_coefficients!(net, "R_biomass_synthesis", 1.0)
+    linear_weights!(net, "R_biomass_synthesis", 1.0)
 
     return net
 end

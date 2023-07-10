@@ -32,7 +32,7 @@ function _toy_net4D_builder()
     extras!(net, "EX_GLC", "Ex_glc")
     extras!(net, "EX_AA", "Ex_aa")
     
-    linear_coefficients!(net, "biom", 1.0)
+    linear_weights!(net, "biom", 1.0)
     
     return net
 end

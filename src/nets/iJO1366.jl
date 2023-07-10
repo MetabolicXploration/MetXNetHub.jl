@@ -36,7 +36,7 @@ function _iJO1366_builder()
     extras!(net, "EX_CO2", "R_EX_co2_e")
     extras!(net, "ATPM", "R_ATPM")
 
-    linear_coefficients!(net, "R_BIOMASS_Ec_iJO1366_core_53p95M", 1.0)
+    linear_weights!(net, "R_BIOMASS_Ec_iJO1366_core_53p95M", 1.0)
 
     return net
 end

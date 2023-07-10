@@ -12,7 +12,7 @@ function _iJR904_builder()
     extras!(net, "EX_CO2", "R_EX_co2_e")
     extras!(net, "ATPM", "R_ATPM")
     
-    linear_coefficients!(net, "R_BIOMASS_Ecoli", 1.0)
+    linear_weights!(net, "R_BIOMASS_Ecoli", 1.0)
 
     return net
 end

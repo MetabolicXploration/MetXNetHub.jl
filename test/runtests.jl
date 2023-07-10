@@ -103,7 +103,7 @@ using Test
                     _size = size(net)
 
                     # Test biom is set
-                    @test linear_coefficients(net, obj_id) == 1.0
+                    @test linear_weights(net, obj_id) == 1.0
 
                     opm = FBAOpModel(net, Clp.Optimizer)
                     net = nothing; GC.gc(); # free (just in case)

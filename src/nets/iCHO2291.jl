@@ -79,7 +79,7 @@ function _iCHO2291_builder()
     extras!(net, "EX_CO2", "R_EX_co2__40__e__41__")
     extras!(net, "ATPM", "R_DM_atp__91__c__93__")
 
-    linear_coefficients!(net, "R_biomass_cho", 1.0)
+    linear_weights!(net, "R_biomass_cho", 1.0)
 
     return net
 

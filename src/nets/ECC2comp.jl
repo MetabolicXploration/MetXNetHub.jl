@@ -31,7 +31,7 @@
 #     # extras!(net, "EX_GLC", "R_SuccUp")
 #     # extras!(net, "EX_NH4", "R_EX_nh4_LPAREN_e_RPAREN_")
 
-#     linear_coefficients!(net, "Growth", 1.0)
+#     linear_weights!(net, "Growth", 1.0)
 
 #     return net
 # end

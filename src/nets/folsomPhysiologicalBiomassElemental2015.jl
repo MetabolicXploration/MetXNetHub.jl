@@ -20,7 +20,7 @@
     
 #     # under bound biomass
 #     objid = extras(net, "BIOM")
-#     linear_coefficients!(net, objid, 1.0)
+#     linear_weights!(net, objid, 1.0)
     
 #     return net
 
