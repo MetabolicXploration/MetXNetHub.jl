@@ -47,6 +47,7 @@ function _SysBioChanlmers_Human_GEM_builder()
 
     # remove drug reactions
     net = empty_drug_reactions!(net)
+    net = emptyless_model(net)
 
     # close intakes
     for i in eachindex(net.rxns)
