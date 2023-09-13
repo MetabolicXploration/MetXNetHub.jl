@@ -23,7 +23,8 @@ using Test
         "linear_net", "toy_net", "toy_net4D", 
 
         # E coli
-        "ecoli_core", "ECC2", "ECGS", 
+        "ecoli_core", "ecoli_core_Beg2007",
+        "ECC2", "ECGS", 
         "iJR904", "iJO1366", 
         # "folsomPhysiologicalBiomassElemental2015", # TODO: make MetXCultureHub work
         

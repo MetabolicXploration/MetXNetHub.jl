@@ -28,10 +28,8 @@ module MetXNetHub
     include("nets/ECGS.jl")
     include("nets/ENGRO1.jl")
     include("nets/Martinez_Monge_HEK293.jl")
-    include("nets/SysBioChanlmers/SysBioChalmers_EnzymeConstrained_humanModels.jl")
-    include("nets/SysBioChanlmers/niklas_biomass.jl")
-    include("nets/SysBioChanlmers/SysBioChalmers_Human_GEM.jl")
     include("nets/ecoli_core.jl")
+    include("nets/ecoli_core_Beg2007.jl")
     include("nets/folsomPhysiologicalBiomassElemental2015.jl")
     include("nets/iCHO2291.jl")
     include("nets/iJO1366.jl")
@@ -40,6 +38,9 @@ module MetXNetHub
     include("nets/toy_net.jl")
     include("nets/toy_net4D.jl")
     include("nets/toy_net_cost.jl")
+    include("nets/SysBioChanlmers/SysBioChalmers_EnzymeConstrained_humanModels.jl")
+    include("nets/SysBioChanlmers/SysBioChalmers_Human_GEM.jl")
+    include("nets/SysBioChanlmers/niklas_biomass.jl")
 
     function __init__()
         # scratch
@@ -48,6 +49,7 @@ module MetXNetHub
         # register models
         empty!(NETS_REG)
         _register_ecoli_core()
+        _register_ecoli_core_Beg2007()
         _register_linear_model()
         _register_toy_net()
         _register_toy_net4D()
