@@ -28,6 +28,7 @@ module MetXNetHub
     include("nets/ECGS.jl")
     include("nets/ENGRO1.jl")
     include("nets/Martinez_Monge_HEK293.jl")
+    include("nets/Massucci2013.jl")
     include("nets/ecoli_core.jl")
     include("nets/ecoli_core_Beg2007.jl")
     include("nets/folsomPhysiologicalBiomassElemental2015.jl")
@@ -62,6 +63,7 @@ module MetXNetHub
         _register_Martinez_Monge_HEK293()
         _register_SysBioChanlmers_Human_GEM()
         _register_SysBioChalmers_EnzymeConstrained_humanModels()
+        _register_Massucci2013()
         # _register_folsomPhysiologicalBiomassElemental2015()  # TODO: makes MetXCultureHub works
         _register_ENGRO1()
 

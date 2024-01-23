@@ -19,7 +19,7 @@ end
 
 function _register_iJR904()
     register_network!("iJR904", _iJR904_builder;
-        use_cache = true,
+        use_cache = false,
         source = "http://bigg.ucsd.edu/models/iJR904", 
         desc = "A genome-scale model of E. coli, just as shipped"
     )
