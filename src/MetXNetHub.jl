@@ -5,7 +5,7 @@ module MetXNetHub
     using MetXBase
     using MetXGEMs
     import MetXGEMs.COBREXA
-    # using MetXCultureHub # TODO: makes MetXCultureHub works
+    using MetXCultureHub 
 
     using Serialization
     using SparseArrays
@@ -42,6 +42,7 @@ module MetXNetHub
     include("nets/SysBioChanlmers/SysBioChalmers_EnzymeConstrained_humanModels.jl")
     include("nets/SysBioChanlmers/SysBioChalmers_Human_GEM.jl")
     include("nets/SysBioChanlmers/niklas_biomass.jl")
+    include("nets/MinCell_JCVI_syn3A.jl")
 
     function __init__()
         # scratch
@@ -64,6 +65,7 @@ module MetXNetHub
         _register_SysBioChanlmers_Human_GEM()
         _register_SysBioChalmers_EnzymeConstrained_humanModels()
         _register_Massucci2013()
+        _register_MinCell_JCVI_syn3A()
         # _register_folsomPhysiologicalBiomassElemental2015()  # TODO: makes MetXCultureHub works
         _register_ENGRO1()
 

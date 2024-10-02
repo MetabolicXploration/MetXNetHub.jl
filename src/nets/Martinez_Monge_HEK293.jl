@@ -6,7 +6,7 @@ function _Martinez_Monge_HEK293_builder()
     rawfilename = "bit26858-sup-0001-S1_Model.xml"
     rawfile = _raw_file(rawfilename)
 
-    std_net = COBREXA.load_model(COBREXA.StandardModel, rawfile)
+    std_net = COBREXA.load_model(COBREXA.CanonicalModel, rawfile)
 
     # TODO: add gene associations
     # TODO: add notes to MetNet
