@@ -35,6 +35,7 @@ module MetXNetHub
     include("nets/iCHO2291.jl")
     include("nets/iJO1366.jl")
     include("nets/iJR904.jl")
+    include("nets/iML1515.jl")
     include("nets/linear_net.jl")
     include("nets/toy_net.jl")
     include("nets/toy_net4D.jl")
@@ -43,6 +44,7 @@ module MetXNetHub
     include("nets/SysBioChanlmers/SysBioChalmers_Human_GEM.jl")
     include("nets/SysBioChanlmers/niklas_biomass.jl")
     include("nets/MinCell_JCVI_syn3A.jl")
+    include("nets/PAMModel-alterProteomeRegulationPatterns2021.jl")
 
     function __init__()
         # scratch
@@ -65,8 +67,10 @@ module MetXNetHub
         _register_SysBioChanlmers_Human_GEM()
         _register_SysBioChalmers_EnzymeConstrained_humanModels()
         _register_Massucci2013()
+        _register_iML1515()
         _register_MinCell_JCVI_syn3A()
-        # _register_folsomPhysiologicalBiomassElemental2015()  # TODO: makes MetXCultureHub works
+        # _register_folsomPhysiologicalBiomassElemental2015()  # TODO: make MetXCultureHub works
+        _register_PAMModel_alterProteomeRegulationPatterns2021()
         _register_ENGRO1()
 
     end

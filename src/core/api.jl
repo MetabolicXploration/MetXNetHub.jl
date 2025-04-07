@@ -41,11 +41,14 @@ function pull_net(id, build_args...;
 end
 
 ## ------------------------------------------------------------------
-function register_network!(id::String, builder::Function; 
+function register_network!(
+        id::String, 
+        builder::Function; 
+        force = false,
         use_cache = true,
         desc...
     )
-    haskey(NETS_REG, id) && error("Network '$id' already registered")
+    force || haskey(NETS_REG, id) && error("Network '$id' already registered")
 
     NETS_REG[id] = Dict{String, Any}()
 
